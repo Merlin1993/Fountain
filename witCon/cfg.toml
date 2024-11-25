@@ -1,0 +1,17 @@
+name = "0"
+saint_list = ["0"]
+ip = "192.168.1.52:30000"
+node_list = []
+logLvl = 2
+consensus = 1
+txAmount = 40000
+txSize = 200000
+viewChangeDuration = 20000
+rtt = 0
+prePack = true
+shardVerify = true
+schnorr = true
+signVerifyCore = 16
+shardCount = 4
+shardVerifyCore = 4
+VerifyCount = 2

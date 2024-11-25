@@ -1,0 +1,9 @@
+thread = 10
+perAddress = 1
+tbCount = 1
+payloadSize = 256
+txCount = 1
+txPayload = 256
+Wait = 60000
+StatCount = 1
+APS = 1

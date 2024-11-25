@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Statistic">
+    <option name="fileTypesIncluded" value="go" />
+    <option name="excludeDotArtifactDirectory" value="true" />
+    <option name="excludedDirectories">
+      <list>
+        <option value="$PROJECT_DIR$/kyber-master" />
+        <option value="$PROJECT_DIR$/.idea" />
+        <option value="$PROJECT_DIR$/zltc" />
+        <option value="$PROJECT_DIR$/kyber-master" />
+        <option value="$PROJECT_DIR$/../lattice-crypto/.idea" />
+        <option value="$PROJECT_DIR$/../lattice-crypto/ecies" />
+        <option value="$PROJECT_DIR$/../lattice-crypto/gm" />
+        <option value="$PROJECT_DIR$/../lattice-crypto/secp256k1" />
+        <option value="$PROJECT_DIR$/../lattice-crypto/x509" />
+        <option value="$PROJECT_DIR$/log" />
+        <option value="$PROJECT_DIR$/cloud" />
+        <option value="$PROJECT_DIR$/common/math" />
+        <option value="$PROJECT_DIR$/common/rlp" />
+        <option value="$PROJECT_DIR$/common/hexutil" />
+        <option value="$PROJECT_DIR$/console" />
+        <option value="$PROJECT_DIR$/kyber-master" />
+        <option value="$PROJECT_DIR$/vendor" />
+      </list>
+    </option>
+  </component>
+</project>

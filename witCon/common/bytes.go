@@ -1,0 +1,92 @@
+package common
+
+import (
+	"encoding/binary"
+	"encoding/hex"
+	"errors"
+	"github.com/btcsuite/btcutil/base58"
+)
+
+var (
+	Base58Version    byte = 0x01
+	Base58BytesError      = errors.New("base58 code version invalid.")
+)
+
+// FromHex returns the bytes represented by the hexadecimal string s. s may be prefixed with "0x".
+func FromHex(s string) []byte {
+	if len(s) > 1 {
+		if s[0:2] == "0x" || s[0:2] == "0X" {
+			s = s[2:]
+		}
+	}
+	if len(s)%2 == 1 {
+		s = "0" + s
+	}
+	return Hex2Bytes(s)
+}
+
+// Hex2Bytes returns the bytes represented by the hexadecimal string str.
+func Hex2Bytes(str string) []byte {
+	h, _ := hex.DecodeString(str)
+	return h
+}
+
+// CopyBytes returns an exact copy of the provided bytes.
+func CopyBytes(b []byte) (copiedBytes []byte) {
+	if b == nil {
+		return nil
+	}
+	copiedBytes = make([]byte, len(b))
+	copy(copiedBytes, b)
+
+	return
+}
+
+// RightPadBytes zero-pads slice to the right up to length l.
+func RightPadBytes(slice []byte, l int) []byte {
+	if l <= len(slice) {
+		return slice
+	}
+
+	padded := make([]byte, l)
+	copy(padded, slice)
+
+	return padded
+}
+
+// LeftPadBytes zero-pads slice to the left up to length l.
+func LeftPadBytes(slice []byte, l int) []byte {
+	if l <= len(slice) {
+		return slice
+	}
+
+	padded := make([]byte, l)
+	copy(padded[l-len(slice):], slice)
+
+	return padded
+}
+
+func Byte2Int(data []byte) uint32 {
+	return binary.BigEndian.Uint32(data)
+}
+
+func Base58ToBytes(data string) ([]byte, error) {
+	dec, version, err := base58.CheckDecode(data)
+	if err != nil {
+		return nil, err
+	}
+	if version != Base58Version {
+		return nil, Base58BytesError
+	}
+	return dec, nil
+}
+
+func Uint64ToByte(data uint64) []byte {
+	result := make([]byte, 8)
+	binary.BigEndian.PutUint64(result, data)
+	return result
+}
+
+func BytesToUint64(bytes []byte) uint64 {
+	return binary.BigEndian.Uint64(bytes)
+}
